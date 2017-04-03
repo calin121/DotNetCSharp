@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ConsoleApplication
 {
@@ -7,6 +8,19 @@ namespace ConsoleApplication
         public static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+
+            List<string> bikes = new List<string>();
+            bikes.Add("Kawasaki");
+            bikes.Add("Triumph");
+            bikes.Add("BMW");
+            bikes.Add("Moto Guzzi");
+            bikes.Add("Harley Davidson");
+            bikes.Add("Suzuki");
+
+            foreach (string manu in bikes)
+            {
+                Console.WriteLine("-"+manu);
+            }
         
             for (int i = 1; i <= 255; i++)
             {
