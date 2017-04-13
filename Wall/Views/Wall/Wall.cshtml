@@ -1,0 +1,63 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>LogReg</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.js"></script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.0.min.js"></script>
+        <style>
+            #wrapper {
+                padding: 10%;
+            }
+            button {
+                display: inline;
+            }
+            img {
+                width: 20%;
+            }
+            td {
+                padding-top: 4%;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrapper" class="ui container">
+            <div class="column">
+                <div class="ui inverted segment purple">
+                    <div>
+                        <h1>Welcome @ViewBag.name</h1>
+                        <h2>Here is what's on the wall today!</h2>
+                        <hr>
+                        <h3>Add a new message here:</h3>
+                        <form action="createmsg" method="Post">
+                            <label for="msg">Message:</label>
+                            <textarea name="msg" id="msg" cols="50" rows="5"></textarea>
+                            <input class="ui inverted button green" type="submit" value="Add Message">
+                        </form>
+                    </div>
+                    <hr>
+                    <div>
+                        @{
+                            foreach(var msg in @ViewBag.messages)
+                            {
+                                //If there are any messages...
+                                <ul>
+                                    <li>@msg["message"]</li>
+                                </ul>
+                            }
+                        }
+                    </div>
+                    <hr>
+                    <form action="logout" method="Post">
+                        <input class="ui inverted button yellow" type="submit" name="" value="Logout">
+                    </form>                
+                </div>
+            </div>
+        </div>
+    </body> 
+</html>
