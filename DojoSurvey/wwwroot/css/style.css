@@ -1,0 +1,52 @@
+* {
+ outline: 0px dotted red;
+ padding: 0px;
+ margin: auto;
+ font-family: sans-serif;
+}
+.wrap {
+
+    width: 75%;
+    padding: 1%;
+}
+h3 {
+    text-decoration: underline;
+}
+.title {
+    text-align: center;
+}
+.results {
+    margin-top: 1%;
+    border: 1px solid black;
+    width: 33%;
+    padding: 1%;
+}
+.surveyform {
+    margin-top: 1%;
+    border: 1px solid black;
+    width: 32%;
+    padding: 2%;
+}
+.submit {
+    margin-left: 81%;
+    box-shadow: 2px 2px 2px black;
+    background: #76A5AF;
+    color: white;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-top: 1%;
+}
+.back {
+    margin-left: 81%;
+    box-shadow: 2px 2px 2px black;
+    background: #76A5AF;
+    color: white;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-top: 1%;
+    margin-top: 20%;
+}
+td {
+    padding-left: 1%;
+    width: 15%;
+}

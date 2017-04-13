@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>Dojo Survey</title>
+        <link rel="stylesheet" href="~/css/style.css"/>
+    </head>
+    <body>
+        <!--Wrapper-->
+        <div class="wrap">
+            <!--Title-->
+            <h1 class="title">Dojo Survey</h1>
+            <!--Survey Form-->
+            <div class="surveyform">
+                <form class="survey" action="Process" method="Post">
+                    <table>
+                        <tr>
+                            <td>Your Name:</td>
+                            <td><input type="text" name="name"></td>
+                        </tr>
+                        <tr>
+                            <td>Dojo Location:</td>
+                            <td><input type="text" name="location"></td>
+                        </tr>
+                        <tr>
+                            <td>Favorite Language:</td>
+                            <td><input type="text" name="language"></td>
+                        </tr>
+                        <tr>
+                            <td>Comment (optional):</td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <table>
+                        <tr>
+                            <td><textarea rows="5" cols="45" name="comment"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td><input class="submit" type="submit" name="submit" value="Submit"></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

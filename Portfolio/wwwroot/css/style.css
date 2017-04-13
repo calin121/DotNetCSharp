@@ -1,0 +1,57 @@
+* {
+ outline: 0px dotted red;
+ padding: 0px;
+ margin: auto;
+ font-family: sans-serif;
+}
+h1 {
+
+    padding: 1%;
+}
+h2 {
+    padding: 1%;
+}
+h3 {
+    padding: 1%;
+}
+p {
+    padding: 1%;
+}
+li {
+    padding-left: 1%;
+    padding-right: 1%;
+    list-style: none;
+}
+.name {
+    text-align: center;
+}
+.wrap {
+    width: 75%;
+    padding: 2%;
+}
+.title {
+    padding: 1%
+}
+.selfimg {
+    width: 20%;
+    height: auto;
+    display: block;
+    border: 2px solid lightslategrey;
+    box-shadow: 5px 5px 5px grey;
+}
+.navBar {
+    border: 1px solid black;
+}
+a {
+    padding: 1%;
+}
+.projimg {
+    width: 20%;
+    height: auto;
+    display: block;
+}
+.contact {
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}

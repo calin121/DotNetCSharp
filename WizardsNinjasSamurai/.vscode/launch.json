@@ -6,9 +6,9 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceRoot}\\Basic_13\\bin\\Debug\\netcoreapp1.0\\Basic_13.dll",
+            "program": "${workspaceRoot}\\bin\\Debug\\netcoreapp1.0\\WizardsNinjasSamurai.dll",
             "args": [],
-            "cwd": "${workspaceRoot}\\Basic_13",
+            "cwd": "${workspaceRoot}",
             "console": "internalConsole",
             "stopAtEntry": false,
             "internalConsoleOptions": "openOnSessionStart"
