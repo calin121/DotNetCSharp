@@ -1,0 +1,62 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>C# Belt Exam Dash</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.js"></script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.0.min.js"></script>
+        <style>
+            #wrapper {
+                padding: 10%;
+            }
+            button {
+                display: inline;
+            }
+            img {
+                width: 20%;
+            }
+            td {
+                padding-top: 4%;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrapper" class="ui container">
+            <div class="ui inverted segment black">
+                <h3><a href="http://localhost:5000/dash">My Profile</a> | <a href="">All Users</a> | <a href="http://localhost:5000/logout">Logout</a></h3>
+                <hr>
+                <!--Users Available to connect with-->
+                <div>
+                    <h3>Users you may want to connect with:</h3>
+                    <div>
+                        <table class="ui striped table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{
+                                    if (@ViewBag.user != null) {
+                                        foreach (var contact in @ViewBag.user) {
+                                            <tr>
+                                                <td><a href='http://localhost:5000/profile/@contact["id"]'>@contact["name"]</a></td>
+                                                <td><a href='http://localhost:5000/invite/@contact["id"]'>Connect</a></td>
+                                            </tr>
+                                        }
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body> 
+</html>

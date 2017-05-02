@@ -1,0 +1,76 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>Bank Activity</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.js"></script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.0.min.js"></script>
+        <style>
+            #wrapper {
+                padding: 10%;
+            }
+            button {
+                display: inline;
+            }
+            img {
+                width: 20%;
+            }              
+        </style>
+    </head>
+    <body>
+        <div id="wrapper" class="ui container">
+            <div class="column">
+                <div class="ui inverted segment black">
+                    <h1>Welcome @ViewBag.name</h1>
+                    <hr>
+                    <h1>Your Bank Account information is below</h1>
+                    <p style="color: red">@ViewBag.error</p>
+                    <hr>
+                    <!--Balance-->
+                    <div id="ballance">
+                        <label class="display: inline;" for="bal">Current Balance: </label>
+                        <p class="display: inline;" id="bal">@string.Format("{0:C}\n",@ViewBag.balance)</span></p>
+                    </div>
+                    <!--Make a transaction-->                    
+                    <div id="transactions">
+                        <h2 style="color: red">@TempData["error"]</h2>
+                        <form action="transaction" method="Post">
+                            <label for="tran">Deposit/Withdraw: $</label>
+                            <input style="color: blue" id="tran" type="number" step="0.01" name="Amount">
+                            <input type="hidden" value="@ViewBag.id">
+                            <input  class="ui inverted button green" type="submit" value="Submit">
+                        </form>
+                    </div>
+                    <!--Bank Account Information below-->
+                    <div>
+                        <table class="ui celled striped table">
+                                    <tr>
+                                        <th>Amount:</th>
+                                        <th>Date:</th>
+                                    </tr>
+                        @{
+                            foreach(var tran in @ViewBag.transactions) {
+                                
+                                    <tr>
+                                        <td>@string.Format("{0:C}\n",@tran.Amount)</td>
+                                        <td>@tran.Date</td>
+                                    </tr>
+                                }
+                        }
+                                </table>
+                            
+                    </div>
+                    <!--Logout Button-->
+                    <form action="logout" method="Post">
+                        <input class="ui inverted button red" type="submit" value="Logout">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body> 
+</html>

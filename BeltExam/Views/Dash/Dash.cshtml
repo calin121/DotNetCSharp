@@ -1,0 +1,86 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>C# Belt Exam Dash</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.js"></script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.0.min.js"></script>
+        <style>
+            #wrapper {
+                padding: 10%;
+            }
+            button {
+                display: inline;
+            }
+            img {
+                width: 20%;
+            }
+            td {
+                padding-top: 4%;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrapper" class="ui container">
+            <div class="ui inverted segment black">
+                <h3><a href="">My Profile</a> | <a href="http://localhost:5000/allusers">All Users</a> | <a href="http://localhost:5000/Logout">Logout</a></h3>
+                <h1>Hi @ViewBag.user["name"]!</h1>                  
+                <hr>
+                <!--Profile Description-->
+                <div>
+                    <label for="desc"><h3> Here is your profile description:</h3></label>
+                    <form action="edit profile">
+                        <textarea id="desc" style="color: darkblue;" name="description" rows="5" cols="40">@ViewBag.user["description"]</textarea>
+                        <input class="ui inverted button green" type="submit" value="Save Changes">
+                    </form>
+                </div>
+                <hr>
+                <!--Network contacts-->
+                <div>
+                    <h3>Your Professional Network:</h3>
+                    <div style="background: white; width: 50%;">
+                        @{
+                            if (@ViewBag.network != null) {
+                                foreach (var contact in @ViewBag.network) {
+                                    <a href='http://localhost:5000/profile/@contact["id"]'>@contact["name"]</a>
+                                }
+                            }
+                        }
+                    </div>
+                </div>
+                <!--Pending Invitations-->
+                <div>
+                    <h3>Invitations:</h3>
+                    <p>The following people asked you to be in their network:</p>
+                    <div>
+                        <table class="ui striped table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{
+                                    if (@ViewBag.invitation != null) {
+                                        foreach (var contact in @ViewBag.invitation) {
+                                            <tr>
+                                                <td><a href='http://localhost:5000/profile/@contact["id"]'>@contact["name"]</a></td>
+                                                <td><a href='http://localhost:5000/accept/@contact["invite_id"]/@contact["id"]'>Accept Invite</a> | <a href='http://localhost:5000/Ignore/@contact["invite_id"]'>Ignore</a></td>
+                                            </tr>
+                                        }
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body> 
+</html>

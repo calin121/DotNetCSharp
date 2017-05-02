@@ -1,0 +1,75 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>Bank Activity</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.js"></script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.0.min.js"></script>
+        <style>
+            #wrapper {
+                padding: 10%;
+            }
+            button {
+                display: inline;
+            }
+            img {
+                width: 20%;
+            }              
+        </style>
+    </head>
+    <body>
+        <div id="wrapper" class="ui container">
+            <div class="ui inverted segment black">
+                <div id="header">
+                <h3><a href="http://localhost:5000/">Dashboard</a> | <a href="http://localhost:5000/product">Products</a> | <a href="">Orders</a> | <a href="http://localhost:5000/customer">Customers</a></h3>
+                <hr>
+                </div>
+                <!--Title-->
+                    <h3 id="title">Add a new order</h3>
+                <!--Customer and order select-->
+                    <!--insert logic to cycle through the customers-->
+                    <div id="order">
+                        <form>
+                            <!--Customer-->
+                            <label for="customer">Customer:</label>
+                            <select name="CustomerName" id="customer">
+                                <option></option>
+                            </select>
+                            <!--Quantity-->
+                            <label for="quantity">Order:</label>
+                            <select name="Quantity" id="quantity">
+                                <option value=""></option>
+                            </select>
+                            <!--Product-->
+                            <select name="Product" id="">
+                                <option value=""></option>
+                            </select>
+                            <!--Order Button-->
+                            <input type="submit" name="order" value="Order">
+                        </form>
+                    </div>
+                    <hr>
+                <!--Filter Options-->
+                <div id="Filter">
+                    <label for="filter">Filter By:</label>
+                    <select name="fileter" id="filter">
+                        <option value="CreatedAt">Oldest</option>
+                        <option value="UpdatedAt">Most Recent Ordered</option>
+                        <option value="ProductName">Product Name</option>
+                        <option value="CustomerName">Customer Name</option>                                                                     
+                    </select>
+                </div>
+                <hr>
+                <!--Orders-->
+                <div id="orders">
+
+                </div>
+            </div>
+        </div>
+    </body> 
+</html>

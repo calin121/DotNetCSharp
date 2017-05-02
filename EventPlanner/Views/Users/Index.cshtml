@@ -1,0 +1,85 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>LogReg</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.js"></script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.0.min.js"></script>
+        <style>
+            #wrapper {
+                padding: 10%;
+            }
+            button {
+                display: inline;
+            }
+            img {
+                width: 20%;
+            }
+            td {
+                margin-left: 4%;
+                padding-left: 4%;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrapper" class="ui container">
+            <div class="column">
+                <div class="ui inverted segment black">
+                    <h1>Welcome to your Even Planner! Please register below!</h1>
+                    <h3 style="color: lightgreen">Plesae Register below:</h3>
+                    <!--Error Messages-->
+                     <div>
+                        @{
+                            foreach(var error in ViewBag.errors)
+                            {
+                                //If there are any errors for a field...
+                                if(@error.Errors.Count > 0)
+                                {
+                                    // We show the first error for that field
+                                    <p>@error.Errors[0].ErrorMessage</p>
+                                }
+                            }
+                        }
+                        <p>@ViewBag.newerrors</p>
+                    </div>
+                    <h1>Welcome to this page!</h1>
+                    <!--Registration-->
+                    <form action="register" method="Post">
+                        <table>
+                            <tr>
+                                <td><label for="fname">First Name: </label></td>
+                                <td><input id="fname" style="color: red;" type="text" name="FirstName"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="lname">Last Name: </label></td>
+                                <td><input id="lname" style="color: red;" type="text" name="LastName"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="email">Email: </label></td>
+                                <td><input id="email" style="color: red;" type="email" name="Email" value=""></td>
+                            </tr>
+                            <tr>
+                                <td><label for="pw">Password: </label></td>
+                                <td><input id="pw" style="color: red;" type="password" name="Password" value="password"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="pwc">Confirm Password: </label></td>
+                                <td><input id="pwc" style="color: red;" type="password" name="PasswordConfirm" value="password"></td>
+                                <td><a href="http://localhost:5000/alreadyregistered">Already Registered?</a></td>
+                            </tr>
+                            <tr>
+                                <td><input class="ui inverted red button" type="submit" name="addquote" value="Register"></td>
+                            </tr>
+                        </table>
+                    </form>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </body> 
+</html>

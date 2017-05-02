@@ -1,0 +1,80 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>LogReg</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.js"></script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.0.min.js"></script>
+        <style>
+            /** {
+                border: dotted red;
+            }*/
+            #wrapper {
+                width: 80%;
+                padding-top: 10%;
+            }
+            td {
+                padding-top: 4%;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrapper" class="ui container">
+            <div class="ui inverted segment black">
+                <h1>Write a review:</h1>
+            </div>
+            <div class="column">
+                <div class="ui inverted segment black">
+                    <form action="review" method="POST">
+                    <div>
+                        <table>
+                            <tr>
+                                <td><label for="name">Reviewer Name:</label></td>
+                                <td><input style="color: darkblue;" id="name" type="text" name="name"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="restaurant_name">Restaurant Name:</label></td>
+                                <td><input style="color: darkblue;" id="restaurant_name" type="text" name="restaurant_name"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="review">Review:</label></td>
+                                <td><textarea style="color: darkblue;" id="review" type="text" name="review"></textarea></td>
+                            </tr>
+                            <tr>
+                                <td><label for="visit_date">Date of Visit:</label></td>
+                                <td><input style="color: darkblue;" id="visit_date" type="date" name="visit_date"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="stars">Stars:</label></td>
+                                <td>
+                                    <select style="color: darkblue;" id="stars" name="stars">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input class="ui button inverted blue" type="submit" value="Submit">
+                    </form>
+                                </td>
+                                <td>
+                                    <form action="allreviews" method="Get">
+                                        <input class="ui button inverted green" type="submit" name="see_reviews" value="See Reviews">
+                                    </form>
+                                </td>
+                            </tr>
+                        </table>
+                </div>
+            </div>
+        </div>
+    </body> 
+</html>

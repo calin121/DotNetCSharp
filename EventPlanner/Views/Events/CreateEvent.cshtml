@@ -1,0 +1,64 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>Bank Activity</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.js"></script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.0.min.js"></script>
+        <style>
+            #wrapper {
+                padding: 10%;
+            }
+            button {
+                display: inline;
+            }
+            img {
+                width: 20%;
+            }              
+        </style>
+    </head>
+    <body>
+        <div id="wrapper" class="ui container">
+            <div class="column">
+                <div class="ui inverted segment black">
+                    <h1>Plan Your Event</h1>
+                    <hr>
+                    <!--Create a new event form-->
+                    <div>
+                        <form action="addevent" method="Post">
+                            <table>
+                                <tr>
+                                    <td><label for="eventname">Event Name:</label></td>
+                                    <td><input style="color: blue;" type="text" id="eventname" name="EventName" value="@ViewBag.EventName"></td>
+                                </tr>
+                                <h3 style="color: red;">@ViewBag.error</h3>
+                                <tr>
+                                    <td><label for="date">Date of Event:</label></td>
+                                    <td><input style="color: blue;" type="date" id="date" name="Date" value="@ViewBag.Date"></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="address">Event Address:</label></td>
+                                    <td><input style="color: blue;" type="text" id="address" name="Address" value="@ViewBag.EventAddress"></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td><input class="ui inverted button green" type="submit" value="Create"></td>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                    <hr>
+                    <!--Logout Button-->
+                    <form action="logout" method="Post">
+                        <input class="ui inverted button red" type="submit" value="Logout">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body> 
+</html>

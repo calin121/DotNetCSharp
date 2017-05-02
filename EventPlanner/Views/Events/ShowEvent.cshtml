@@ -1,0 +1,64 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>Bank Activity</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.js"></script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.0.min.js"></script>
+        <style>
+            #wrapper {
+                padding: 10%;
+            }
+            button {
+                display: inline;
+            }
+            img {
+                width: 20%;
+            }
+            ul {
+                list-style: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrapper" class="ui container">
+            <div class="column">
+                <div class="ui inverted segment black">
+                    <div style="display: inline;">
+                        <h1>@ViewBag.thisEvent.EventName</h1>
+                        <a href="http://localhost:5000/events">Dashboard</a>
+                    </div>
+                    <p style="color: red">@ViewBag.error</p>
+                    <hr>
+                    <h3>Date: @ViewBag.thisEvent.Date.Date.ToString("MMMM dd, yyyy")</h3>
+                    <h4>Guests:</h4>
+                    <ul>
+                        @{
+                            foreach (var guest in @ViewBag.allInvites) {
+                                <li>@guest.User.FirstName</li>
+                            }
+                        }
+                    </ul>
+                    <!--maps of location-->
+                    <hr>
+                    <h3>Address:</h3>
+                    <iframe
+                    width="600"
+                    height="450"
+                    frameborder="0" style="border:0"
+                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDXiTFC3uFwF28YzlQaMJ91GwhRg8X1Gbc&q=@ViewBag.address" allowfullscreen>
+                    </iframe>
+                    <!--Logout Button-->
+                    <form action="logout" method="Post">
+                        <input class="ui inverted button red" type="submit" value="Logout">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body> 
+</html>

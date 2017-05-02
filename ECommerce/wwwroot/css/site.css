@@ -1,0 +1,31 @@
+/*Write all of your CSS here*/
+*{
+    border: 1px red dotted;
+}
+#title {
+    text-decoration: underline;
+}
+option {
+    color: darkblue;
+}
+#newProducts {
+    width:20%;
+    display: inline-block;
+}
+#allProducts {
+    width: 79%;
+    display: inline-block;
+    vertical-align: top;
+    overflow: scroll;
+    height: 100%;
+}
+#eachProduct {
+    width: 24%;
+    display: inline-block;
+}
+#prodImage {
+    width: 100%;
+}
+.productDescription {
+    text-align: center;
+}

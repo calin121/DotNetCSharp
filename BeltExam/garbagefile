@@ -1,0 +1,5 @@
+@{
+                            foreach (var contact in @ViewBag.network) {
+                                <a href='http://localhost:5000/profile/@contact["id"]'>@contact["name"]</a>
+                            }
+                        }

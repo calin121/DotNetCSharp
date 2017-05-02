@@ -23,36 +23,89 @@
             td {
                 padding-top: 4%;
             }
+            ul {
+                list-style: none;
+                
+            }
         </style>
     </head>
     <body>
         <div id="wrapper" class="ui container">
             <div class="column">
-                <div class="ui inverted segment purple">
+                <div class="ui inverted segment black">
                     <div>
                         <h1>Welcome @ViewBag.name</h1>
                         <h2>Here is what's on the wall today!</h2>
                         <hr>
+                        <hr>
                         <h3>Add a new message here:</h3>
                         <form action="createmsg" method="Post">
-                            <label for="msg">Message:</label>
-                            <textarea name="msg" id="msg" cols="50" rows="5"></textarea>
+                            <textarea style="color: blue" name="message" cols="50" rows="5"></textarea>
                             <input class="ui inverted button green" type="submit" value="Add Message">
                         </form>
                     </div>
                     <hr>
                     <div>
                         @{
-                            foreach(var msg in @ViewBag.messages)
-                            {
+                            foreach(var msg in @ViewBag.messages) {
                                 //If there are any messages...
                                 <ul>
-                                    <li>@msg["message"]</li>
+                                    <li style="color: lightsteelblue;">@msg["first_name"] @msg["last_name"] posted - @msg["created_at"]</li>
+                                    <li>
+                                        <ul>
+                                            <li style="font-family: 'Franklin Gothic Medium';">
+                                                <table>
+                                                    <tr>
+                                                        <td style="width: 30%; color: darkred; font-style: bold;">
+                                                            @msg["message"]
+                                                            @{
+                                                                if(@msg["created_at"].AddMinutes(30) > DateTime.Now) {
+                                                                    if (@ViewBag.id == @msg["user_user_id"]) {
+                                                                        <form action='deletemsg/@msg["message_id"]' method="Post">
+                                                                            <input class="ui inverted button red" type="submit" value="Delete Message">
+                                                                        </form>
+                                                                    }
+                                                                }
+                                                            }
+                                                        </td>
+                                                        <td style="width: 30%;">
+                                                            <form action='createcmt/@msg["message_id"]' method="Post">
+                                                                <!--<input type="hidden" name="msgId" value='@msg["message_id"]'>-->
+                                                                <textarea style="color: darkblue" name="comment" cols="50" rows="2"></textarea>
+                                                                <input class="ui inverted button blue" type="submit" value="Add Comment">
+                                                            </form>
+                                                            
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </li>
+                                            <li>
+                                                @{
+                                                    foreach(var cmt in @ViewBag.comments) {
+                                                        if (cmt["message_id"] == msg["message_id"])
+                                                        {
+                                                            <ul>
+                                                                <li style="color: lightsteelblue;">@cmt["first_name"] @cmt["last_name"] commented - @cmt["created_at"]</li>
+                                                                <li>
+                                                                    <ul>
+                                                                        <li style="color: cyan; margin-right: 10%;">
+                                                                            @cmt["comment"]
+                                                                        </li>
+                                                                    </ul>
+                                                                </li>
+                                                            </ul>
+                                                        }
+                                                    }
+                                                }
+                                            </li>
+                                        </ul>
+                                    </li>
                                 </ul>
+                                <hr>
                             }
                         }
+                        <hr>
                     </div>
-                    <hr>
                     <form action="logout" method="Post">
                         <input class="ui inverted button yellow" type="submit" name="" value="Logout">
                     </form>                

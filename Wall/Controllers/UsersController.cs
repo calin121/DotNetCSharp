@@ -44,7 +44,7 @@ namespace Wall.Controllers
                     HttpContext.Session.SetString("first_name", (string)user["first_name"]);
                     HttpContext.Session.SetString("success", "registered");
 
-                    return RedirectToAction("Success", "WallController");
+                    return RedirectToAction("Wall", "Wall");
                 }
                 else {
                     ViewBag.newerrors = "This email already exists!";
