@@ -1,0 +1,47 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+<html>
+    <head>
+        <meta charset="utf=8">
+        <title>Pokemon Info</title>
+    </head>
+    <body>
+        <div>
+            <h1>@ViewBag.Pokemon.Name</h1>
+            <h3>Types:</h3>
+            <ul>
+            @foreach( var type in @ViewBag.Pokemon.Types)
+            {
+                <li>@type</li>
+            }
+            </ul>
+            <h3>Height: @ViewBag.Pokemon.Height</h3>
+            <h3>Weight: @ViewBag.Pokemon.Weight</h3>
+            <p>@ViewBag.Pokemon</p>
+
+            <table>
+                <tr>
+                    <th>Back of Female</th>
+                    <th>Back of Female Shiny</th>
+                    <th>Back Default</th>
+                    <th>Front of Female</th>
+                    <th>Front of Female Shiny</th>
+                    <th>Back Shiny</th>
+                    <th>Front Default</th>
+                    <th>Front Shiny</th>            
+                </tr>
+                <tr>
+                    <td><img src="@ViewBag.Pokemon.Image1" alt=""></td>
+                    <td><img src="@ViewBag.Pokemon.Image2" alt=""></td>
+                    <td><img src="@ViewBag.Pokemon.Image3" alt=""></td>
+                    <td><img src="@ViewBag.Pokemon.Image4" alt=""></td>
+                    <td><img src="@ViewBag.Pokemon.Image5" alt=""></td>
+                    <td><img src="@ViewBag.Pokemon.Image6" alt=""></td>
+                    <td><img src="@ViewBag.Pokemon.Image7" alt=""></td>
+                    <td><img src="@ViewBag.Pokemon.Image8" alt=""></td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>
